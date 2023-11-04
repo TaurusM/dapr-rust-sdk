@@ -11,13 +11,13 @@ keywords = ["microservices", "dapr"]
 
 
 [dependencies]
-tonic = "0.8"
-prost = "0.11"
+tonic = { git = "https://github.com/TaurusM/tonic.git", branch = "main" }
+prost = { git = "https://github.com/TaurusM/prost.git", branch = "main" }
 bytes = "1"
-prost-types = "0.11"
+prost-types = { git = "https://github.com/TaurusM/prost.git", branch = "main", package = "prost-types" }
 
 [build-dependencies]
-tonic-build = "0.8"
+tonic-build = { git = "https://github.com/TaurusM/tonic.git", branch = "main", package = "tonic-build" }
 
 [dev-dependencies]
 tokio = { version = "1", features = ["full"] }
