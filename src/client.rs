@@ -59,6 +59,8 @@ impl<T: DaprInterface> Client<T> {
         &mut self,
         name: S,
         data: Vec<u8>,
+        metadata: HashMap<String, String>,
+        operation: String,
     ) -> Result<InvokeBindingResponse, Error>
     where
         S: Into<String>,
@@ -67,7 +69,8 @@ impl<T: DaprInterface> Client<T> {
             .invoke_binding(InvokeBindingRequest {
                 name: name.into(),
                 data,
-                ..Default::default()
+                metadata: metadata,
+                operation: operation,
             })
             .await
     }
@@ -291,10 +294,9 @@ impl DaprInterface for dapr_v1::dapr_client::DaprClient<TonicChannel> {
         &mut self,
         request: InvokeBindingRequest,
     ) -> Result<InvokeBindingResponse, Error> {
-        Ok(self
-            .invoke_binding(Request::new(request))
-            .await?
-            .into_inner())
+        let req = Request::new(request);
+        println!("req: {:#?}", req);
+        Ok(self.invoke_binding(req).await?.into_inner())
     }
 
     async fn publish_event(&mut self, request: PublishEventRequest) -> Result<(), Error> {
