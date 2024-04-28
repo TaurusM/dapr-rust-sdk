@@ -11,14 +11,14 @@ keywords = ["microservices", "dapr"]
 
 
 [dependencies]
-tonic = { git = "https://github.com/TaurusM/tonic.git", rev = "8357fd0da1fd244304f02a6268df0640fa683f40" }
+tonic = { git = "https://github.com/TaurusM/tonic.git", rev = "d0985384c9f05e59c400a338512ec174adbb0a62" }
 prost = { git = "https://github.com/TaurusM/prost.git", rev = "2e1602874493e9ed1ffaaf2e450be52c0f11dc32" }
 bytes = "1"
 prost-types = { git = "https://github.com/TaurusM/prost.git", rev = "2e1602874493e9ed1ffaaf2e450be52c0f11dc32", package = "prost-types" }
 serde = { version = "1.0.145", features = ["derive"] }
 
 [build-dependencies]
-tonic-build = { git = "https://github.com/TaurusM/tonic.git", rev = "8357fd0da1fd244304f02a6268df0640fa683f40", package = "tonic-build" }
+tonic-build = { git = "https://github.com/TaurusM/tonic.git", rev = "d0985384c9f05e59c400a338512ec174adbb0a62", package = "tonic-build" }
 
 [dev-dependencies]
 tokio = { version = "1", features = ["full"] }
